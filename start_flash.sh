@@ -52,6 +52,7 @@ echo "Starting pairing procedure in screen"
 sudo ip route add 255.255.255.255 dev $WLAN
 sudo screen -L smarthack-smartconfig.log -S smarthack-smartconfig -m -d ./smartconfig/smartconfig.js
 echo "Waiting for the upgraded device to appear"
+echo "If this does not work have a look at the '*.log'-files in the 'scripts' subfolder!"
 
 while ! timeout 0.2 ping -c 1 -n 10.42.42.42 &> /dev/null
 do
@@ -86,7 +87,7 @@ echo "3. Flash a third party firmware to the device"
 echo "BE SURE THE FIRMWARE FITS THE DEVICE AND USES THE CORRECT FLASH MODE!"
 echo "MAXIMUM SIZE IS 512KB"
 echo "put or link it to ./files/thirdparty.bin"
-echo "A minimal build of Sonoff-Tasmota v6.4.1 is already included in this repository."
+echo "A basic build of Sonoff-Tasmota v6.4.1 is already included in this repository."
 echo "   # curl http://10.42.42.42/flash3"
 echo "Alternatively let the device download and flash a file via HTTP:"
 echo "   # curl http://10.42.42.42/flashURL?url=http://10.42.42.1/files/thirdparty.bin"
